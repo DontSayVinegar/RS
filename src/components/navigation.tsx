@@ -13,7 +13,7 @@ export default function Navigation({ children }: { children: React.ReactNode; })
                     <>
                         <motion.div
                             initial={{ filter: "blur(20px)", opacity: 0 }}
-                            transition={{ ease: "easeInOut", duration: 0.5 }}
+                            transition={{ ease: "easeInOut", duration: 0.15 }}
                             animate={{ filter: "blur(0px)", opacity: 1 }}
                             exit={{ filter: "blur(20px)", opacity: 0 }}
                             className="hidden lg:flex gap-4">
