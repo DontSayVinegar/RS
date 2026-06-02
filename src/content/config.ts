@@ -20,4 +20,20 @@ const articles = defineCollection({
     }),
 });
 
-export const collections = { articles };
+const projects = defineCollection({
+    loader: glob({ pattern: ["**/*.md", "**/*.mdx"], base: "./src/content/projects" }),
+    schema: ({ image }) => z.object({
+        title: z.string(),
+        description: z.string(),
+        slug: z.string(),
+        cover: image(),
+        coverAlt: z.string().default(""),
+        order: z.number().default(0),
+        gallery: z.array(z.object({
+            src: image(),
+            alt: z.string().default(""),
+        })).default([]),
+    }),
+});
+
+export const collections = { articles, projects };
