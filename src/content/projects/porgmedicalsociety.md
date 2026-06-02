@@ -12,6 +12,6 @@ gallery:
 
 ## O projektu
 
-Moje firma R&D Web Engineering LLC. získala zakázku od známého zdravotnického spolku porgmedicalsociety na vytvoření webových stránek.
+Moje firma R&D Web Engineering LLC získala zakázku od známého zdravotnického spolku porgmedicalsociety na vytvoření webových stránek.
 
 Naše firma je velice hrdá na výsledek.

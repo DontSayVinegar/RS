@@ -2,7 +2,7 @@
 title: Andromeda
 description: Největší raketa v Česku. Hydribní motor.
 slug: andromeda
-order: 1
+order: 12
 cover: ../../assets/soyuz.webp
 coverAlt: Andromeda
 gallery:
