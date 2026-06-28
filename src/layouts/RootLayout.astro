@@ -3,6 +3,7 @@ import "../styles/global.css";
 import { Font } from "astro:assets";
 import { ClientRouter } from 'astro:transitions';
 import LoadingIndicator from "astro-loading-indicator/component"
+import LanguageSwitcher from "../components/language-switcher.astro";
 import { stripLocale, localizePath } from "../i18n/ui";
 
 interface Props {
@@ -75,6 +76,7 @@ const alternates = [
 
 	</head>
 	<body class="font-sans min-h-screen bg-zinc-900">
+		<LanguageSwitcher />
 		<slot />
 	</body>
 </html>

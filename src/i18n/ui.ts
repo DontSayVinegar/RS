@@ -21,6 +21,7 @@ export const ui = {
         "project.gallery": "Galerie",
         "gallery.close": "Zavřít",
         "lang.switch": "EN",
+        "lang.switchFull": "English",
     },
     en: {
         "nav.projects": "Projects",
@@ -40,6 +41,7 @@ export const ui = {
         "project.gallery": "Gallery",
         "gallery.close": "Close",
         "lang.switch": "CZ",
+        "lang.switchFull": "Čeština",
     },
 } as const;
 

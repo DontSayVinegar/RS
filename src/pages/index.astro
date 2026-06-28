@@ -5,13 +5,13 @@ import Navigation, { type NavItem } from "../components/navigation";
 import RootLayout from "../layouts/RootLayout.astro";
 import WarpBackground from "../components/warp-background";
 import AvailableForWork from "../components/available.astro";
-import LanguageSwitcher from "../components/language-switcher.astro";
-import { useTranslations, localizePath } from "../i18n/ui";
+import { useTranslations, localizePath, switchLocalePath } from "../i18n/ui";
 
 const locale = "cs";
 const t = useTranslations(locale);
 
 const navItems: NavItem[] = [
+	{ href: switchLocalePath(Astro.url.pathname, "en"), label: t("lang.switchFull"), icon: "language" },
 	{ href: localizePath("/about", locale), label: t("nav.services"), icon: "info" },
 	{ href: localizePath("/contact", locale), label: t("nav.contact"), icon: "smiley" },
 ];
@@ -31,10 +31,6 @@ const navItems: NavItem[] = [
 					shapeScale={0.3}
 					client:load
 				/>
-			</div>
-
-			<div class="absolute top-4 right-4 sm:top-8 sm:right-8 z-20">
-				<LanguageSwitcher />
 			</div>
 
 			<div class="p-4 sm:p-8 absolute w-full h-dvh flex flex-col justify-between z-10">
