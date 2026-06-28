@@ -1,0 +1,47 @@
+---
+import H1 from "./h1.astro";
+import { about } from "../i18n/about";
+import type { Locale } from "../i18n/ui";
+
+interface Props {
+    locale: Locale;
+}
+
+const { locale } = Astro.props;
+const content = about[locale];
+---
+
+<div class="p-4 sm:pt-8 sm:px-12 pb-20 min-h-dvh flex flex-col gap-16 sm:gap-24">
+    <div class="space-y-4 sm:space-y-8 max-w-3xl">
+        <H1>{content.title}</H1>
+        {content.intro.map((paragraph) => (
+            <p class="text-lg xl:text-xl text-zinc-400 text-balance">{paragraph}</p>
+        ))}
+    </div>
+
+    <div class="space-y-6">
+        <h2 class="text-zinc-300 text-sm uppercase tracking-wide">{content.skillsHeading}</h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-x-8 gap-y-10">
+            {content.groups.map((group) => (
+                <div>
+                    <h3 class="text-zinc-200 font-medium">{group.title}</h3>
+                    <ul class="mt-3 space-y-1 text-sm text-zinc-400 list-disc list-outside pl-4">
+                        {group.items.map((item) => (
+                            <li>{item}</li>
+                        ))}
+                    </ul>
+                </div>
+            ))}
+        </div>
+    </div>
+
+    <div class="space-y-3">
+        <h2 class="text-zinc-300 text-sm uppercase tracking-wide">{content.funHeading}</h2>
+        <ul class="flex flex-wrap gap-2">
+            {content.fun.map((item) => (
+                <li class="px-3 py-1 text-xs text-zinc-400 bg-zinc-800/60 rounded-full">{item}</li>
+            ))}
+        </ul>
+    </div>
+</div>

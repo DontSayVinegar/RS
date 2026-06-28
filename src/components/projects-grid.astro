@@ -1,0 +1,36 @@
+---
+import { Image } from "astro:assets";
+import { localizePath, type Locale } from "../i18n/ui";
+import type { Project } from "../lib/projects";
+
+interface Props {
+    cards: { project: Project; data: Project["data"] }[];
+    locale: Locale;
+}
+
+const { cards, locale } = Astro.props;
+---
+
+<ul class="mt-4 sm:mt-12 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-16 sm:gap-8">
+    {cards.map(({ project, data }) => (
+        <li>
+            <a
+                href={localizePath(`/projects/${project.data.slug}`, locale)}
+                class="group block focus-visible:outline-2 outline-offset-4 outline-zinc-100/40 rounded-lg"
+            >
+                <Image
+                    src={project.data.cover}
+                    alt={project.data.coverAlt || data.title}
+                    class="aspect-[1/1.33] object-center object-cover rounded-lg shadow-lg mb-4 sm:mb-0 sm:mr-4 transition-opacity duration-300 group-hover:opacity-90"
+                />
+                <div class="p-1 sm:p-2">
+                    <h2 class="text-base text-zinc-100 underline underline-offset-2 decoration-transparent group-hover:decoration-zinc-500 group-hover:text-white">{data.title}</h2>
+                    <p class="text-sm text-zinc-400 text-balance">{data.description}</p>
+                    {data.category && (
+                        <p class="mt-2 text-xs uppercase tracking-wide text-zinc-600">{data.category}</p>
+                    )}
+                </div>
+            </a>
+        </li>
+    ))}
+</ul>

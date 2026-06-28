@@ -1,0 +1,17 @@
+---
+import { getLocaleFromUrl, switchLocalePath, locales } from "../i18n/ui";
+
+const current = getLocaleFromUrl(Astro.url);
+const target = locales.find((l) => l !== current) ?? current;
+const href = switchLocalePath(Astro.url.pathname, target);
+const label = target.toUpperCase();
+---
+
+<a
+    href={href}
+    hreflang={target}
+    class="text-sm text-zinc-500 hover:text-zinc-100 transition-colors duration-300"
+    aria-label={`Switch language to ${label}`}
+>
+    {label}
+</a>

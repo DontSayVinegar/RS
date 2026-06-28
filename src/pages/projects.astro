@@ -1,30 +1,17 @@
 ---
-import { Image } from 'astro:assets';
-import { getCollection } from "astro:content";
 import H1 from "../components/h1.astro";
+import ProjectsGrid from "../components/projects-grid.astro";
 import InfoLayout from "../layouts/InfoLayout.astro";
+import { getLocalizedProjectCards } from "../lib/projects";
+import { useTranslations } from "../i18n/ui";
 
-const projects = (await getCollection("projects")).sort(
-     (a, b) => a.data.order - b.data.order,
-);
+const t = useTranslations("cs");
+const cards = await getLocalizedProjectCards("cs");
 ---
 
-<InfoLayout>
+<InfoLayout title="Projekty — Richard Šiser" description="Výběr inženýrských projektů Richarda Šisera." locale="cs">
      <div class="p-4 sm:pt-8 sm:px-12 pb-20 min-h-dvh">
-          <H1> Projekty </H1>
-
-          <ul class="mt-4 sm:mt-12 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-16 sm:gap-8">
-               {projects.map((project) => (
-                    <li>
-                         <a href={`/projects/${project.data.slug}`} class="group block">
-                              <Image src={project.data.cover} alt={project.data.coverAlt || project.data.title} class="aspect-[1/1.33] object-center object-cover rounded-lg shadow-lg mb-4 sm:mb-0 sm:mr-4 transition-opacity duration-300 group-hover:opacity-90" />
-                              <div class="p-1 sm:p-2">
-                                   <h2 class="text-base text-zinc-100 underline underline-offset-2 decoration-transparent group-hover:decoration-zinc-500 group-hover:text-white">{project.data.title}</h2>
-                                   <p class="text-sm text-zinc-400 text-balance">{project.data.description}</p>
-                              </div>
-                         </a>
-                    </li>
-               ))}
-          </ul>
+          <H1>{t("projects.title")}</H1>
+          <ProjectsGrid cards={cards} locale="cs" />
      </div>
 </InfoLayout>

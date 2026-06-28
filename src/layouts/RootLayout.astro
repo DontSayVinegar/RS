@@ -3,36 +3,67 @@ import "../styles/global.css";
 import { Font } from "astro:assets";
 import { ClientRouter } from 'astro:transitions';
 import LoadingIndicator from "astro-loading-indicator/component"
+import { stripLocale, localizePath } from "../i18n/ui";
 
-const { title, description } = Astro.props;
+interface Props {
+	title?: string;
+	description?: string;
+	/** Page language. Drives <html lang> and og:locale. */
+	locale?: "cs" | "en";
+	/** Absolute or root-relative image for social cards. Defaults to /social-image.jpg */
+	image?: string;
+}
+
+const { title, description, locale = "cs", image } = Astro.props;
 
 const defaultTitle = "Richard Šiser";
 const defaultDescription = "Richard Šiser - Inženýrské služby všeho druhu";
+
+const pageTitle = title ?? defaultTitle;
+const pageDescription = description ?? defaultDescription;
+
+// Build absolute URLs from `site` (configured in astro.config.mjs).
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
+const socialImage = new URL(image ?? "/social-image.jpg", Astro.site).href;
+const ogLocale = locale === "en" ? "en_US" : "cs_CZ";
+
+// hreflang alternates for the cs/en pair of this page.
+const basePath = stripLocale(Astro.url.pathname);
+const alternates = [
+	{ hreflang: "cs", href: new URL(localizePath(basePath, "cs"), Astro.site).href },
+	{ hreflang: "en", href: new URL(localizePath(basePath, "en"), Astro.site).href },
+	{ hreflang: "x-default", href: new URL(localizePath(basePath, "cs"), Astro.site).href },
+];
 ---
 
 <!doctype html>
-<html lang="cz">
+<html lang={locale}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>{title ?? defaultTitle}</title>
-		<meta name="description" content={description ?? defaultDescription} />
+		<title>{pageTitle}</title>
+		<meta name="description" content={pageDescription} />
+		<link rel="canonical" href={canonicalURL} />
+		{alternates.map((alt) => (
+			<link rel="alternate" hreflang={alt.hreflang} href={alt.href} />
+		))}
 
-		<meta property="og:url" content="https://www.richardsiser.com/" />
+		<meta property="og:url" content={canonicalURL} />
 		<meta property="og:type" content="website" />
-		<meta property="og:title" content={defaultTitle} />
-		<meta property="og:description" content={defaultDescription} />
-		<meta property="og:image" content="/social-image.jpg" />
+		<meta property="og:locale" content={ogLocale} />
+		<meta property="og:title" content={pageTitle} />
+		<meta property="og:description" content={pageDescription} />
+		<meta property="og:image" content={socialImage} />
 
 		<!-- Twitter Meta Tags -->
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta property="twitter:domain" content="www.richardsiser.com" />
-		<meta property="twitter:url" content="https://www.richardsiser.com/" />
-		<meta name="twitter:title" content={defaultTitle} />
-		<meta name="twitter:description" content={defaultDescription} />
-		<meta name="twitter:image" content="/social-image.jpg" />
+		<meta property="twitter:url" content={canonicalURL} />
+		<meta name="twitter:title" content={pageTitle} />
+		<meta name="twitter:description" content={pageDescription} />
+		<meta name="twitter:image" content={socialImage} />
 
 		<Font cssVariable="--font-geist" preload />
 		<ClientRouter />

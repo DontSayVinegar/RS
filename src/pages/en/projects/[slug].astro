@@ -1,0 +1,31 @@
+---
+import { getImage } from "astro:assets";
+import ProjectDetail from "../../../components/project-detail.astro";
+import InfoLayout from "../../../layouts/InfoLayout.astro";
+import { getVisibleProjects, getEnglishProjectMap } from "../../../lib/projects";
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+    const [projects, english] = await Promise.all([
+        getVisibleProjects(),
+        getEnglishProjectMap(),
+    ]);
+
+    return projects.map((project) => ({
+        params: { slug: project.data.slug },
+        props: { project, english: english.get(project.data.slug) },
+    }));
+}
+
+const { project, english } = Astro.props;
+
+// Prefer translated title/description for the page chrome; fall back to Czech.
+const title = english?.data.title ?? project.data.title;
+const description = english?.data.description ?? project.data.description;
+const ogImage = await getImage({ src: project.data.cover, format: "jpg", width: 1200, height: 630 });
+---
+
+<InfoLayout title={`${title} — Richard Šiser`} description={description} image={ogImage.src} locale="en">
+    <ProjectDetail project={project} english={english} locale="en" />
+</InfoLayout>

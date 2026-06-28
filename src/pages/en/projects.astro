@@ -1,0 +1,17 @@
+---
+import H1 from "../../components/h1.astro";
+import ProjectsGrid from "../../components/projects-grid.astro";
+import InfoLayout from "../../layouts/InfoLayout.astro";
+import { getLocalizedProjectCards } from "../../lib/projects";
+import { useTranslations } from "../../i18n/ui";
+
+const t = useTranslations("en");
+const cards = await getLocalizedProjectCards("en");
+---
+
+<InfoLayout title="Projects — Richard Šiser" description="Selected engineering projects by Richard Šiser." locale="en">
+     <div class="p-4 sm:pt-8 sm:px-12 pb-20 min-h-dvh">
+          <H1>{t("projects.title")}</H1>
+          <ProjectsGrid cards={cards} locale="en" />
+     </div>
+</InfoLayout>
