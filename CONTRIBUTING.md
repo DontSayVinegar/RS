@@ -26,8 +26,9 @@ This prompts for a few fields and scaffolds `src/content/projects/<slug>/index.m
 from `scripts/templates/project.md`. Then:
 
 1. Drop a `cover.jpg` into the new folder.
-2. Add any gallery images to the folder and list them under `gallery:`.
-3. Write the body. Reference images **relatively**: `![Popisek](./gallery-1.jpg)`.
+2. Drop any gallery images into the same folder — they're added to the gallery
+   automatically (no frontmatter needed). See [Gallery](#gallery) below.
+3. Write the body. Reference inline images **relatively**: `![Popisek](./obrazek.jpg)`.
 4. Set `draft: false` to publish.
 5. `pnpm dev` and open `/projects/<slug>`.
 
@@ -48,7 +49,28 @@ from `scripts/templates/project.md`. Then:
 | `tags`        | no       | List of strings.                                             |
 | `tools`       | no       | List of strings, shown in the info strip.                    |
 | `links`       | no       | List of `{ label, url }`, shown in the info strip.           |
-| `gallery`     | no       | List of `{ src, alt }` using relative `./` paths.            |
+| `gallery`     | no       | Manual override — see [Gallery](#gallery). Usually omit it.   |
+
+## Gallery
+
+By default the gallery is **built automatically** from every image in the
+project's folder **except the cover** (`cover.*`), sorted alphabetically by
+filename. Just drop images into the folder — no frontmatter required. To control
+the order, prefix filenames (`01-…`, `02-…`).
+
+> Note: auto mode includes *all* non-cover images, so any images you reference
+> inline in the body will also appear in the gallery.
+
+To curate the gallery manually (specific images, custom order, or alt text),
+list them explicitly — this overrides the automatic behavior:
+
+```yaml
+gallery:
+  - src: ./detail.jpg
+    alt: Detail uložení
+  - src: ./montaz.jpg
+    alt: Montáž
+```
 
 ## Ordering
 

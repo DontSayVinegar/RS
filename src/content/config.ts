@@ -1,6 +1,13 @@
 import { glob } from "astro/loaders";
 import { z, defineCollection } from "astro:content";
 
+// Treat blank optional fields (empty string / null) as absent, so a scaffolded
+// file with e.g. `role:` left empty still validates.
+const optionalText = z.preprocess(
+    (v) => (v === "" || v === null ? undefined : v),
+    z.string().optional(),
+);
+
 const projectSchema = ({ image }: { image: () => any }) =>
     z.object({
         title: z.string(),
@@ -15,8 +22,8 @@ const projectSchema = ({ image }: { image: () => any }) =>
         // Hide from the production build while a writeup is in progress.
         draft: z.boolean().default(false),
         // Optional metadata shown in the detail page's info strip.
-        role: z.string().optional(),
-        category: z.string().optional(),
+        role: optionalText,
+        category: optionalText,
         tags: z.array(z.string()).default([]),
         tools: z.array(z.string()).default([]),
         links: z.array(z.object({

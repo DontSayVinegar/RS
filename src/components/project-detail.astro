@@ -7,6 +7,7 @@ import Gallery from "./gallery";
 import ProjectMeta from "./project-meta.astro";
 import { useTranslations, localizePath, type Locale } from "../i18n/ui";
 import type { Project, ProjectEn } from "../lib/projects";
+import { getGalleryImages } from "../lib/gallery";
 
 interface Props {
     project: Project;
@@ -22,11 +23,16 @@ const entry = locale === "en" && english ? english : project;
 const data = entry.data;
 const { Content } = await render(entry);
 
-// Pre-optimise gallery images so the lightbox island gets ready-to-use URLs.
+// The gallery is built automatically from the project's folder images (or the
+// frontmatter `gallery` when set). Pre-optimise each into a small thumbnail for
+// the grid and a larger version for the lightbox.
 const galleryImages = await Promise.all(
-    project.data.gallery.map(async (item) => {
-        const optimised = await getImage({ src: item.src, width: 1600 });
-        return { src: optimised.src, alt: item.alt || data.title };
+    getGalleryImages(project).map(async (item) => {
+        const [thumb, full] = await Promise.all([
+            getImage({ src: item.src, width: 800 }),
+            getImage({ src: item.src, width: 1600 }),
+        ]);
+        return { thumb: thumb.src, src: full.src, alt: item.alt || data.title };
     }),
 );
 ---
@@ -47,6 +53,10 @@ const galleryImages = await Promise.all(
     <Image
         src={project.data.cover}
         alt={project.data.coverAlt || data.title}
+        widths={[480, 768, 1200, 1600]}
+        sizes="(min-width:1280px) 1100px, 100vw"
+        loading="eager"
+        fetchpriority="high"
         class="mt-6 w-full max-h-[28rem] object-center object-cover rounded-xl shadow-lg"
     />
 

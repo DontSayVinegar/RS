@@ -1,23 +1,20 @@
 ---
 title: Polární expedice 100km 24h
-description: Se zkušeným týden jsem se vydali na riskatní 100km za 24h polární expedici z Kladna. Ušli jsme 50km.
+description: Se zkušeným týmem jsme se vydali na riskantní polární expedici 100 km za 24 hodin. Ušli jsme 50 km.
 slug: polarni-expedice
 order: 9
 cover: ./expedice.jpg
 coverAlt: Polární expedice 100km 24h
-gallery:
-  - src: ./expedice.jpg
-    alt: Polární expedice 100km 24h
 ---
 
 ## O projektu
 
 Jeden z fyzicky nejnáročnějších projektů vůbec.
 
-Rozhodli jsme se otestovat limity lidského těla a lidské vůle, a proto jsme 2.12.2023 vyšli na 100km expedici z Kolína do Prahy.
+Rozhodli jsme se otestovat limity lidského těla a vůle, a tak jsme 2. 12. 2023 vyrazili na 100km expedici z Kolína do Prahy.
 
-Ten den byla sněhová bouře, kterou Česká republika nezažila už 40 let, ale ani to nás neodradilo. Brodili jsme se hlubokým sněhem a nemilosrdnou divočinou hodiny a hodiny.
+Ten den se přes Českou republiku přehnala sněhová bouře, jakou země nezažila už 40 let, ale ani to nás neodradilo. Hodiny a hodiny jsme se brodili hlubokým sněhem a nemilosrdnou divočinou.
 
-Bohužel jsme po cestě ztratily Alex, která si zlomila kotník a nebylo možné ji v daných podmínkách zachránit.
+Bohužel jsme cestou ztratili Alex, která si zlomila kotník a v daných podmínkách ji nebylo možné zachránit.
 
-Nakonec jsme podlehli přírodě napůl cesty v Lysé nad Labem - mém rodném městě. Naštěstí mě obyvatelé města poznali a vzali nás do sucha a tepla.
+Nakonec jsme přírodě podlehli v půli cesty v Lysé nad Labem – mém rodném městě. Naštěstí mě obyvatelé města poznali a vzali nás do sucha a tepla.

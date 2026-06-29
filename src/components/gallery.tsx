@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 
 export type GalleryImage = {
+    /** Small image shown in the grid. */
+    thumb: string;
+    /** Full-size image shown in the lightbox. */
     src: string;
     alt: string;
 };
@@ -43,9 +46,10 @@ export default function Gallery({
                             aria-label={`Zvětšit: ${image.alt}`}
                         >
                             <img
-                                src={image.src}
+                                src={image.thumb}
                                 alt={image.alt}
                                 loading="lazy"
+                                decoding="async"
                                 className="w-full aspect-[4/3] object-center object-cover rounded-lg shadow-lg transition-opacity duration-300 group-hover:opacity-90"
                             />
                         </button>

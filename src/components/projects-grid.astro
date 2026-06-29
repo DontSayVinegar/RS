@@ -21,6 +21,8 @@ const { cards, locale } = Astro.props;
                 <Image
                     src={project.data.cover}
                     alt={project.data.coverAlt || data.title}
+                    widths={[240, 360, 480, 720]}
+                    sizes="(min-width:1280px) 30vw, (min-width:1024px) 45vw, 90vw"
                     class="aspect-[1/1.33] object-center object-cover rounded-lg shadow-lg mb-4 sm:mb-0 sm:mr-4 transition-opacity duration-300 group-hover:opacity-90"
                 />
                 <div class="p-1 sm:p-2">

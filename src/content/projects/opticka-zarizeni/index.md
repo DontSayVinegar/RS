@@ -5,9 +5,6 @@ slug: opticka-zarizeni
 order: 10
 cover: ./optika.jpg
 coverAlt: Vývoj pokročilých optických zařízení
-gallery:
-  - src: ./optika.jpg
-    alt: Vývoj pokročilých optických zařízení
 ---
 
 ## O projektu

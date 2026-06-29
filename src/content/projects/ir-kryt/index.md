@@ -15,35 +15,31 @@ gallery:
 ---
 
 ## O projektu
-V rámci finálního týmového projektu na výměnném pobytu na Singapore University of Technology and Design, jsem měl zá úkol navrhnou kryt pro IR senzory naší chytré slepecké hole.
 
-První iterace měla mnoho problémů. Od kolegů jsem neměl rozměry elektronických součástek, které do krytu měly patřit, takže jsem tipoval rozměry.
+V rámci finálního týmového projektu na výměnném pobytu na Singapore University of Technology and Design jsem měl za úkol navrhnout kryt pro IR senzory naší chytré slepecké hole.
+
+První iterace měla mnoho problémů. Od kolegů jsem neměl rozměry elektronických součástek, které do krytu měly patřit, takže jsem rozměry odhadoval.
 
 ![První iterace explodovaná](./first_iteration_exploded.jpeg)
 
 Návrh se skládal z kolíku, který tvořil uložení s přesahem s holí. Ten se čepem nalisoval do hlavního těla dutého válcového krytu, který měl po stranách dva výstupky pro samotné IR senzory. Na tělo se čepy nalisovala tzv. čepice půlkulového tvaru.
 
-Hlavní problém byl v čepech. Bylo težké nadimenzovat čepy a otvory, aby do sebe pasovaly a zároveň držely. Zároveň byly čepy tak malé, že měli tendenci prasknout při menším zatížením. Materiál prvních tisků byl PLA.
+Hlavní problém byl v čepech. Bylo těžké nadimenzovat čepy a otvory tak, aby do sebe pasovaly a zároveň držely. Čepy byly navíc tak malé, že měly tendenci prasknout i při menším zatížení. Materiál prvních tisků byl PLA.
 
 ![Nezdařilý první tisk](./IR_firstiteration.jpg)
 
-Druhý návrh chtěl vyřesit problém smontovatelnosti. Do prvního návrhu bylo težké vměstnat elektroniky, jelikož byl relativně uzavřený. Proto jsem u druhého návrhu ustoupil od "čepicového" designu, a rozhodl jsem návrh těla uskutečnit rozpůleným válcovým tvarem.
+Druhý návrh měl vyřešit problém smontovatelnosti. Do prvního návrhu bylo těžké vměstnat elektroniku, jelikož byl relativně uzavřený. Proto jsem u druhého návrhu ustoupil od „čepicového“ designu a rozhodl se tělo navrhnout jako rozpůlený válcový tvar.
 
 ![Druhý návrh](./druha_iterace.jpg)
 
-Tento návrh se nedostal daleko, jelikož nevyužíval efektivně prostor a otevřená elektronika by nepůsobila dobře. Byl rychle vyměněn dalším návrhem.
+Tento návrh se nedostal daleko, jelikož nevyužíval efektivně prostor a otevřená elektronika by nepůsobila dobře. Byl rychle nahrazen dalším návrhem.
 
-Ten je druhému podobný, ale elektronika byla vložena takovým způsobem, který zaručoval minimální průměr válce. Nový návrh nevyužíval žádné čepy a místo toho byla většina spojů řešena pomocí vložených matic. U těch jsem došel k optimální vůli 0.2mm.
+Ten je druhému podobný, ale elektronika byla vložena takovým způsobem, který zaručoval minimální průměr válce. Nový návrh nevyužíval žádné čepy a místo toho byla většina spojů řešena pomocí vložených matic. U nich jsem došel k optimální vůli 0,2 mm.
 
 ![Třetí návrh](./housingassemblycutcompressed.jpg)
 
-Zároveň byl u prvního návrhu problém s tiskem výstupků pro IR senzory. Jelikož se tiskl pod úhlem a na podpěrách, tak nevypadal dobře a výsledek byl velmi nepřesný. Proto jsem se u třetího návrhu rozhodl tisknout výstupky zvlášť a připevnit je pomocí rybinového spoje k hlavnímu tělu. Jelikož se rybinový spoj musel tisknout na těle pod úhlem, nebyl velmi přesný a nakonec jsme využili vteřinového lepidla, aby věci lépe drželi.
+U prvního návrhu byl také problém s tiskem výstupků pro IR senzory. Jelikož se tiskly pod úhlem a na podpěrách, nevypadaly dobře a výsledek byl velmi nepřesný. Proto jsem se u třetího návrhu rozhodl tisknout výstupky zvlášť a připevnit je k hlavnímu tělu pomocí rybinového spoje. Jelikož se rybinový spoj musel na těle tisknout pod úhlem, nebyl příliš přesný, a nakonec jsme použili vteřinové lepidlo, aby vše lépe drželo.
 
-Vetšina šroubů byla zvolena na základě toho co mi bylo dostupné. Většina byla M2.5 plus jeden M5x40 inbusový šroub, který jsem našel ve šrotu.
+Většina šroubů byla zvolena podle toho, co jsem měl k dispozici. Většinou šlo o M2.5 plus jeden inbusový šroub M5×40, který jsem našel ve šrotu.
 
-Celkově finální design vyřešil problém rozbíratelnosti a držel v rámci možností docela dobře.
-
-![Uložení IR senzorů](./cervenej_design.jpg)
-
-
-
+Celkově finální design vyřešil problém rozebíratelnosti a v rámci možností držel docela dobře.

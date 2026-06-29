@@ -5,13 +5,10 @@ slug: revitalizace-zabradli
 order: 5
 cover: ./opravaZabradliReal.jpg
 coverAlt: Revitalizace zábradlí kanadské ambasády
-gallery:
-  - src: ./opravaZabradliReal.jpg
-    alt: Revitalizace zábradlí kanadské ambasády
 ---
 
 ## O projektu
 
-Kanadská ambasáda mě požádalo o renovaci seschlého a bezbarvého zábradlí na jejich pozemku.
+Kanadská ambasáda mě požádala o renovaci seschlého a vybledlého zábradlí na svém pozemku.
 
-Zábradlí bylo ve velmi špatném stavu, a tak jsem musel použít i speciálních prostředků, včetně odšeďovače.
+Zábradlí bylo ve velmi špatném stavu, a tak jsem musel použít i speciální prostředky, včetně odšeďovače.

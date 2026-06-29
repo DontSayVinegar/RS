@@ -5,9 +5,6 @@ slug: audit-metra-d
 order: 4
 cover: ./auditD.jpg
 coverAlt: Audit stavby metra D
-gallery:
-  - src: ./auditD.jpg
-    alt: Audit stavby metra D
 ---
 
 ## O projektu

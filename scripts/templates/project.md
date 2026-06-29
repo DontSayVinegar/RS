@@ -17,14 +17,16 @@ links: []
 # Drop a cover.jpg into this folder, then reference it here.
 cover: ./cover.jpg
 coverAlt: __TITLE__
-# Add gallery images to this folder and list them here (optional).
-gallery: []
-#  - src: ./gallery-1.jpg
-#    alt: Popis obrázku
+# The gallery is built automatically from every image in this folder except the
+# cover (sorted by filename). To curate or reorder it manually, uncomment below:
+# gallery:
+#   - src: ./obrazek.jpg
+#     alt: Popis obrázku
 ---
 
 ## O projektu
 
-Napiš o projektu zde. Obrázky vkládej relativně, např.:
+Napiš o projektu zde. Obrázky přidej do této složky a odkazuj na ně relativně
+(odkomentuj a uprav řádek níže, jakmile obrázek přidáš):
 
-![Popisek](./gallery-1.jpg)
+<!-- ![Popisek](./obrazek.jpg) -->

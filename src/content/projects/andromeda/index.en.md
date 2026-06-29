@@ -6,9 +6,6 @@ date: 2024-09-01
 category: Aerospace
 cover: ./soyuz.webp
 coverAlt: Andromeda
-gallery:
-  - src: ./soyuz.webp
-    alt: Andromeda
 ---
 
 ## About the project

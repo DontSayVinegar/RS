@@ -5,9 +5,6 @@ slug: porgmedicalsociety
 order: 2
 cover: ./pmsImage.png
 coverAlt: Stránky porgmedicalsociety
-gallery:
-  - src: ./pmsImage.png
-    alt: Stránky porgmedicalsociety
 ---
 
 ## O projektu

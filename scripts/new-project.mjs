@@ -73,8 +73,9 @@ try {
         .replaceAll("__SLUG__", slug)
         .replaceAll("__DESCRIPTION__", description)
         .replaceAll("__DATE__", date)
-        .replaceAll("__ROLE__", role)
-        .replaceAll("__CATEGORY__", category);
+        // Fill optional fields, or drop the line entirely when left blank.
+        .replace(/^role: __ROLE__\n/m, role ? `role: ${role}\n` : "")
+        .replace(/^category: __CATEGORY__\n/m, category ? `category: ${category}\n` : "");
 
     mkdirSync(folder, { recursive: true });
     writeFileSync(join(folder, "index.md"), filled);
